@@ -1,0 +1,20 @@
+/* .Header {
+    width: 100%;
+    overflow-x: hidden;
+    margin: auto;
+    text-align: center;
+    height: 45px;
+    border-bottom: 1px solid #d3d3d3;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+    background: #FFF;
+}
+
+.Header fixed{
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+
+.logo{
+    width: 1px;
+} */
