@@ -36,7 +36,6 @@ const NavBar = () => {
                   name="j_username"
                   type="text"
                 ></Input>
-                {/* <label className="placeholder-label"><span></span></label> */}
               </Placeholderfield>
               <Classicfield>
                 <br />
@@ -52,7 +51,6 @@ const NavBar = () => {
                   name="j_password"
                   type="password"
                 />
-                {/* <Hidepassword><span className="password-show">Afficher</span><span class="password-help help"><i>i</i></span></Hidepassword> */}
               </Placeholderfield>
               <Lineborder></Lineborder>
               <CheckBox>
@@ -73,7 +71,7 @@ const NavBar = () => {
             <LegalMention>
               <p>
                 Vous pouvez consulter notre politique de protection des données
-                personnelles<a> ici</a>.
+                personnelles <a href="/">ici</a>.
               </p>
             </LegalMention>
             <Createaccount>Mentions Légales</Createaccount>
@@ -123,8 +121,6 @@ const Button = styled.button`
     left: 390px;
     z-index: -1;
     transition: transform 1s;
-    /* background:#014711;
-        color: white; */
   }
 `;
 
@@ -147,7 +143,6 @@ const Lineborder = styled.div`
 `;
 
 const Hidepassword = styled.span`
-  /* position: absolute; */
   text-align: right;
 `;
 

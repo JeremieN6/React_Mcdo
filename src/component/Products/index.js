@@ -10,9 +10,9 @@ import logo10 from "../../asset/burger3.png";
 import logo11 from "../../asset/pub.jpg";
 import { Slide } from 'react-slideshow-image'
 import 'bootstrap/dist/css/bootstrap.css';
-// import { FaInfoCircle, FaFacebookSquare, FaInstagram } from "react-icons/fa";
-// import { IoIosBook } from "react-icons/io";
-// import { Footer } from "react-bootstrap/lib/Modal";
+import ReactNotification from 'react-notifications-component';
+import { store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css'
 
 const Products = () => {
   return (
@@ -23,9 +23,12 @@ const Products = () => {
                       <ImagebtnMenu src={logo6}></ImagebtnMenu>
                   </ButtonMenu>
               </ButtonContainer>
-              <ImageContainer src={logo}></ImageContainer>
+              <HeaderRight>
+              <ContainerImg><ImageContainer src={logo}></ImageContainer></ContainerImg>
+              </HeaderRight>
           </Header>
           <ContainerWrapper>
+              {/* <Notif>Commande confirmée</Notif> */}
               <ContainerBurger>
                   <a href="/"><BackNav src={logo2}></BackNav></a>
                   <Titleburger>Nos Burgers</Titleburger>
@@ -62,7 +65,6 @@ const Products = () => {
   );
 };
 
-
 const proprietes = {
     duration:5000,
     transistionDuration:500,
@@ -71,10 +73,21 @@ const proprietes = {
     arrows:true
 }
 
+const Notif = styled.div`
+    background-color:#444;
+    color:white;
+    padding:16px;
+    position:absolute;
+    top:16px;
+    right:16px;
+    z-index:999;
+    transition: top 0.5s ease;
+`
+
 const SocialMedia = styled.div`
-display:flex;
-width: 25%;
-border-right: 1px solid black;`
+    display:flex;
+    width: 25%;
+    border-right: 1px solid black;`
 
 const DetailSM = styled.p`
     color:white;
@@ -83,10 +96,23 @@ const DetailSM = styled.p`
     margin-top: auto;
 `
 
+const ContainerImg = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;`
+
+
+const HeaderRight = styled.div`
+    width:100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin-top: 8px;`
+
 const Pub = styled.img`
-display: flex;
-width: -webkit-fill-available;
-box-shadow: 5px 15px 30px 0px #656565;`
+    display: flex;
+    width: 100%;
+    box-shadow: 5px 15px 30px 0px #656565;`
 
 const ButtonCommander = styled.button`
 
@@ -136,7 +162,6 @@ const ButtonContainer = styled.div`
 
 const ImagebtnMenu = styled.img`
     width: 25px;
-    margin-top: 25%;
 `
 
 const ButtonMenu = styled.div`
@@ -148,8 +173,8 @@ const ButtonMenu = styled.div`
 `
 
 const Lineborder = styled.div`
-  border-bottom: 1px solid #e6e6e6;
-  margin-top: 1px;
+    border-bottom: 1px solid #e6e6e6;
+    margin-top: 1px;
 `;
 
 const BackNav = styled.img`
@@ -191,20 +216,21 @@ const ContainerWrapper = styled.div`
 
 
 const Header = styled.div`
-width:100%;
-text-align:center;
-height: 54px;
-background-color:#21522f;`
+    width: 100%;
+    display: flex;
+    text-align: center;
+    height: 54px;
+    background-color: #21522f;
+    align-items: center;`
 
 const Footer = styled.div`
-display: flex;
-flex: 1;
-height: 54px;
-background-color:#21522f;   
+    display: flex;
+    flex: 1;
+    height: 54px;
+    background-color:#21522f;   
 `
 
 const ImageContainer = styled.img`
-    margin-top: -8%;
     padding-bottom: 15px;
     width: 45px;;
   `
