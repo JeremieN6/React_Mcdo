@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import logo from "../../asset/logo.png";
 
-const NavBar = () => {
+const Login = () => {
   return (
     <sectionMain>
       <Header>
@@ -10,11 +10,11 @@ const NavBar = () => {
       </Header>
       <Container>
         <LoginRegisterBlock>
-          <Login>
+          <ContainerLogin>
             <p>
               <strong>Connectez vous avec vos identifiants</strong>
             </p>
-          </Login>
+          </ContainerLogin>
           <LoginZone>
             <form
               id="LoginForm"
@@ -182,7 +182,7 @@ const Classicfield = styled.div`
 
 const LoginZone = styled.div``;
 
-const Login = styled.div`
+const ContainerLogin = styled.div`
   width: 350px;
   margin: auto;
   color: black;
@@ -234,4 +234,4 @@ const Header = styled.div`
   background: #fff;
 `;
 
-export default NavBar;
+export default Login;

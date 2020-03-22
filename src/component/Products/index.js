@@ -10,9 +10,13 @@ import logo10 from "../../asset/burger3.png";
 import logo11 from "../../asset/pub.jpg";
 import { Slide } from 'react-slideshow-image'
 import 'bootstrap/dist/css/bootstrap.css';
-import ReactNotification from 'react-notifications-component';
-import { store } from 'react-notifications-component';
-import 'react-notifications-component/dist/theme.css'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const notify = () => toast.success("Commande Confirmé !", {
+    position: toast.POSITION.TOP_RIGHT
+  });
+
 
 const Products = () => {
   return (
@@ -28,7 +32,6 @@ const Products = () => {
               </HeaderRight>
           </Header>
           <ContainerWrapper>
-              {/* <Notif>Commande confirmée</Notif> */}
               <ContainerBurger>
                   <a href="/"><BackNav src={logo2}></BackNav></a>
                   <Titleburger>Nos Burgers</Titleburger>
@@ -40,17 +43,17 @@ const Products = () => {
                   <ContainerProducts>
                   <DetailProduct>LE FILET-O-FISH</DetailProduct>
                       <ContainerImageProduct src={logo5}></ContainerImageProduct>
-                      <ButtonCommander src={logo8}>COMMANDER</ButtonCommander>
+                      <ButtonCommander src={logo8}  onClick={notify}>COMMANDER</ButtonCommander>
                   </ContainerProducts>
                   <ContainerProducts>
                   <DetailProduct>LE DOUBLE TENNESSEE BBQ &amp; SMOKY CHEDDAR</DetailProduct>
                       <ContainerImageProduct src={logo9}></ContainerImageProduct>
-                     <ButtonCommander src={logo8}>COMMANDER</ButtonCommander>
+                     <ButtonCommander src={logo8}  onClick={notify}>COMMANDER</ButtonCommander>
                   </ContainerProducts>
                   <ContainerProducts>
                   <DetailProduct>LE McCHICKEN</DetailProduct>
                       <ContainerImageProduct src={logo10}></ContainerImageProduct>
-                      <ButtonCommander src={logo8}>COMMANDER</ButtonCommander>
+                      <ButtonCommander src={logo8}  onClick={notify}>COMMANDER</ButtonCommander>
                   </ContainerProducts>
               </Slide>
               </ContainerProducts>
@@ -73,16 +76,16 @@ const proprietes = {
     arrows:true
 }
 
-const Notif = styled.div`
-    background-color:#444;
-    color:white;
-    padding:16px;
-    position:absolute;
-    top:16px;
-    right:16px;
-    z-index:999;
-    transition: top 0.5s ease;
-`
+// const Notif = styled.div`
+//     background-color:#444;
+//     color:white;
+//     padding:16px;
+//     position:absolute;
+//     top:16px;
+//     right:16px;
+//     z-index:999;
+//     transition: top 0.5s ease;
+// `
 
 const SocialMedia = styled.div`
     display:flex;
