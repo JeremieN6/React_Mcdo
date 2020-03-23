@@ -74,17 +74,6 @@ const proprietes = {
     arrows:true
 }
 
-// const Notif = styled.div`
-//     background-color:#444;
-//     color:white;
-//     padding:16px;
-//     position:absolute;
-//     top:16px;
-//     right:16px;
-//     z-index:999;
-//     transition: top 0.5s ease;
-// `
-
 const SocialMedia = styled.div`
     display:flex;
     width: 25%;
