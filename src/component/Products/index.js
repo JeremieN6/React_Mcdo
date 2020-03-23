@@ -9,14 +9,12 @@ import logo9 from "../../asset/burger2.png";
 import logo10 from "../../asset/burger3.png";
 import logo11 from "../../asset/pub.jpg";
 import { Slide } from 'react-slideshow-image'
-import 'bootstrap/dist/css/bootstrap.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const notify = () => toast.success("Commande Confirmé !", {
     position: toast.POSITION.TOP_RIGHT
   });
-
 
 const Products = () => {
   return (

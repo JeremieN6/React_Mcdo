@@ -4,25 +4,26 @@ import Products from './component/Products/index';
 import './App.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect  } from 'react-router-dom'
+//import isLoggedIn from '../..helpers/is_logged_in';
+
 
 toast.configure({
   autoClose: 5000
 });
 
+
+
 function App(){
+
   return (
 
+    <Router>
     <div>
-      <Login></Login>
-      <Products></Products>
+      <Route path="/login" component={Login}/>
+      <Route path="/produits" component={Products}/>
     </div>
-    // <Router>
-    // <div>
-    //   <Route path="/" component={Login}/>
-    //   <Router path="/produits" component={Products}/>
-    // </div>
-    // </Router>
+    </Router>
     );
 }
 export default App;

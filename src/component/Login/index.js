@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types'
 import styled from "styled-components";
 import logo from "../../asset/logo.png";
+import { useHistory } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({ submit }) => {
+  const history = useHistory()
+  const [form, setForm] = useState({
+    username: '',
+    password: '',
+    isError: false,
+    isErrorMessage:''
+  })
+
+
   return (
     <sectionMain>
       <Header>
@@ -11,47 +22,41 @@ const Login = () => {
       <Container>
         <LoginRegisterBlock>
           <ContainerLogin>
-            <p>
-              <strong>Connectez vous avec vos identifiants</strong>
-            </p>
+              <ContainerLoginTitle>Connectez vous avec vos identifiants</ContainerLoginTitle>
           </ContainerLogin>
-          <LoginZone>
-            <form
-              id="LoginForm"
-              autoComplete="off"
-              className="form-error-false t-prevent-submission"
-              action="dologin"
-              method="post"
-            >
-              <Classicfield>
-                <label>
-                  <span>Mon adresse email</span>
-                </label>
-              </Classicfield>
-              <Placeholderfield>
+          <LoginZone onSubmit={e => submit(e, form, history)}>
+              <Classicfield>Mon adresse email</Classicfield>
                 <Input
-                  autocomplete="off"
-                  data-field="login"
-                  id="j_username"
-                  name="j_username"
-                  type="text"
-                ></Input>
-              </Placeholderfield>
-              <Classicfield>
-                <br />
-                <label>
-                  <span>Mon mot de passe</span>
-                </label>
-              </Classicfield>
-              <Placeholderfield>
+                   placeholder='Entrer Email'
+                   name='username'
+                   onChange={e => setForm({ ...form, username: e.target.value })}
+                   type='text'
+                   onBlur={() =>
+                     form.username.length < 8
+                       ? setForm({
+                           ...form,
+                           isError: true,
+                           isErrorMessage: 'Mail invalide'
+                         })
+                       : setForm({ ...form, isError: false })
+                   }
+                ></Input><Espace/>
+              <Classicfield><Espace/>Mon mot de passe</Classicfield>
+              
                 <Input
-                  autocomplete="off"
-                  data-field="password"
-                  id="j_password"
-                  name="j_password"
-                  type="password"
-                />
-              </Placeholderfield>
+                 name='password'
+                 placeholder='Entrer Mot de Passe'
+                 onChange={e => setForm({ ...form, password: e.target.value })}
+                 type='password'
+                 onBlur={() =>
+                   form.password.length < 8
+                     ? setForm({
+                         ...form,
+                         isError: true,
+                         isErrorMessage: 'Password Invalide'
+                       })
+                     : setForm({ ...form, isError: false })
+                 }/>
               <Lineborder></Lineborder>
               <CheckBox>
                 <input
@@ -60,19 +65,16 @@ const Login = () => {
                   type="checkbox"
                   checked
                 />
-                <label for="keepLogged">Rester connecté(e)</label>
+                <CheckBoxLabel for="keepLogged">Rester connecté(e)</CheckBoxLabel>
               </CheckBox>
               <Clear></Clear>
-              <Button>Je me connecte</Button>
+              <Button disabled={form.isError} type='submit' onClick={() => history.push('/produits')}>Je me connecte</Button>
               <Createaccount>Mot de passe oublié ?</Createaccount>
               <Createaccount>Pas encore de compte ?</Createaccount>
-            </form>
             <Lineborder></Lineborder>
             <LegalMention>
-              <p>
                 Vous pouvez consulter notre politique de protection des données
-                personnelles <a href="/">ici</a>.
-              </p>
+                personnelles <Lien href="/login">ici</Lien>.
             </LegalMention>
             <Createaccount>Mentions Légales</Createaccount>
             <Createaccount>Protection des données personnelles</Createaccount>
@@ -84,13 +86,17 @@ const Login = () => {
   );
 };
 
+const Lien = styled.a``
+
+const Espace = styled.br``
+
 const LegalMention = styled.p`
   color: #7c7c7c;
   font-size: 12px;
   text-align: center;
 `;
 
-const Createaccount = styled.div`
+const Createaccount = styled.p`
   a: {
     color: #7c7c7c;
   }
@@ -131,6 +137,9 @@ const Clear = styled.div`
   margin-bottom: 0;
 `;
 
+const CheckBoxLabel = styled.label`
+`
+
 const CheckBox = styled.div`
   font: 400 12px Arial !important;
   margin-top: 15px;
@@ -142,22 +151,6 @@ const Lineborder = styled.div`
   margin-top: 14px;
 `;
 
-const Hidepassword = styled.span`
-  text-align: right;
-`;
-
-const Placeholderfield = styled.div`
-  input: {
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background: #f6f6f6;
-    text-align: left;
-    display: inline-block;
-    float: right;
-    border-radius: 2px;
-  }
-`;
 
 const Input = styled.input`
   width: 100%;
@@ -173,14 +166,20 @@ const Input = styled.input`
   font-family: Arial;
 `;
 
-const Classicfield = styled.div`
+const Classicfield = styled.span`
   margin-bottom: 4px;
   font-size: 15px;
   color: black;
   font-family: Arial;
 `;
 
-const LoginZone = styled.div``;
+const LoginZone = styled.form``;
+
+const ContainerLoginTitle = styled.p`
+font-weight: bold;
+  font-size: 16px;
+  font-family: Arial;
+  text-align: left;`
 
 const ContainerLogin = styled.div`
   width: 350px;
@@ -233,5 +232,11 @@ const Header = styled.div`
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
   background: #fff;
 `;
+
+
+Login.propTypes = {
+  submit: PropTypes.func
+}
+
 
 export default Login;
