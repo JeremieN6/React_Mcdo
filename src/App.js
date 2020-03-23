@@ -5,7 +5,6 @@ import './App.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter as Router, Switch, Route, Redirect  } from 'react-router-dom'
-//import isLoggedIn from '../..helpers/is_logged_in';
 
 
 toast.configure({
