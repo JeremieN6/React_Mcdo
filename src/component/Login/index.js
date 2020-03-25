@@ -4,7 +4,7 @@ import styled from "styled-components";
 import logo from "../../asset/logo.png";
 import { useHistory } from 'react-router-dom'
 
-const Login = ({ submit }) => {
+const Login = () => {
   const history = useHistory()
   const [form, setForm] = useState({
     username: '',
@@ -13,6 +13,10 @@ const Login = ({ submit }) => {
     isErrorMessage:''
   })
 
+  const submit = (e) => {
+    e.preventDefault()
+    history.push('/produits')
+  }
 
   return (
     <sectionMain>
@@ -68,7 +72,7 @@ const Login = ({ submit }) => {
                 <CheckBoxLabel for="keepLogged">Rester connecté(e)</CheckBoxLabel>
               </CheckBox>
               <Clear></Clear>
-              <Button disabled={form.isError} type='submit' onClick={() => history.push('/produits')}>Je me connecte</Button>
+              <Button type='submit' value="Je me connecte" onClick={e => submit(e, form, history)}></Button>
               <Createaccount>Mot de passe oublié ?</Createaccount>
               <Createaccount>Pas encore de compte ?</Createaccount>
             <Lineborder></Lineborder>
@@ -86,7 +90,8 @@ const Login = ({ submit }) => {
   );
 };
 
-const Lien = styled.a``
+const Lien = styled.a`
+color:#7c7c7c;`
 
 const Espace = styled.br``
 
@@ -108,7 +113,7 @@ const Createaccount = styled.p`
   margin-bottom: 17px;
 `;
 
-const Button = styled.button`
+const Button = styled.input`
   width: 100%;
   height: 40px;
   border-radius: 2px;
