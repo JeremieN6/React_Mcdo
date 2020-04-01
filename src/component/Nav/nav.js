@@ -5,14 +5,16 @@ const Nav = () => {
     return(
         <Header>
             <Menu>
-                <MenuTitle>Login</MenuTitle>
-                <MenuTitle>Product</MenuTitle>
+                <MenuTitle href="/login">Login</MenuTitle>
+                <MenuTitle  href="/produits">Product</MenuTitle>
             </Menu>
         </Header>
     )   
 }
 
-const MenuTitle = styled.li`
+const MenuTitle = styled.a`
+color:white;
+font-weight:bold;
 `
 
 const Menu = styled.ul`
@@ -28,7 +30,7 @@ display:flex;
 justify-content:space-around;
 align-items:center;
 min-height:10vh;
-background: rgb(73,79,82);
+background: #21522f;
 color:white;
 `
 export default Nav;

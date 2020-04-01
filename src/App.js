@@ -4,7 +4,7 @@ import Products from './component/Products/index';
 import './App.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { BrowserRouter as Router, Switch, Route, Redirect  } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
 toast.configure({
