@@ -11,8 +11,6 @@ toast.configure({
   autoClose: 5000
 });
 
-
-
 function App(){
 
   return (

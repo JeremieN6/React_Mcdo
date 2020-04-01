@@ -12,7 +12,7 @@ import { Slide } from 'react-slideshow-image'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const notify = () => toast.success("Commande Confirmé !", {
+const notify = () => toast.success("Commande ajouté au panier !", {
     position: toast.POSITION.TOP_RIGHT
   });
 
