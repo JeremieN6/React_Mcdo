@@ -17,6 +17,7 @@ function App(){
 
     <Router>
     <div>
+      <Route path="/" component={Login}/>
       <Route path="/login" component={Login}/>
       <Route path="/produits" component={Products}/>
     </div>
